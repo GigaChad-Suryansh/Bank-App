@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wallet App — Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="card">
+    <h1>Wallet App</h1>
+    <p class="subtitle">Practice project — fake money only.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" id="loginTabBtn" onclick="showTab('login')">Login</button>
+      <button class="tab-btn" id="registerTabBtn" onclick="showTab('register')">Create account</button>
+    </div>
+
+    <!-- Login form -->
+    <div class="form-panel active" id="loginPanel">
+      <form id="loginForm">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" required autocomplete="email" />
+
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" required autocomplete="current-password" />
+
+        <button type="submit" class="primary">Login</button>
+      </form>
+      <p class="error-msg" id="loginError"></p>
+    </div>
+
+    <!-- Register form -->
+    <div class="form-panel" id="registerPanel">
+      <form id="registerForm">
+        <label for="registerName">Name</label>
+        <input type="text" id="registerName" required autocomplete="name" />
+
+        <label for="registerEmail">Email</label>
+        <input type="email" id="registerEmail" required autocomplete="email" />
+
+        <label for="registerPassword">Password</label>
+        <input type="password" id="registerPassword" required minlength="6" autocomplete="new-password" />
+
+        <button type="submit" class="primary">Create account</button>
+      </form>
+      <p class="error-msg" id="registerError"></p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
