@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wallet App — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="dashboard-wrapper">
+
+    <div class="top-bar">
+      <div>
+        <h1 id="greeting">Hi there</h1>
+        <p class="subtitle" id="emailLine"></p>
+      </div>
+      <button class="secondary" id="logoutBtn">Logout</button>
+    </div>
+
+    <div class="balance-card">
+      <div class="balance-label">Current balance</div>
+      <div class="balance-amount" id="balanceAmount">₹0</div>
+    </div>
+
+    <div class="action-row">
+      <div class="card">
+        <h3>Deposit</h3>
+        <form id="depositForm">
+          <input type="number" id="depositAmount" placeholder="Amount" min="1" step="0.01" required />
+          <button type="submit" class="primary">Deposit</button>
+        </form>
+      </div>
+      <div class="card">
+        <h3>Withdraw</h3>
+        <form id="withdrawForm">
+          <input type="number" id="withdrawAmount" placeholder="Amount" min="1" step="0.01" required />
+          <button type="submit" class="primary">Withdraw</button>
+        </form>
+      </div>
+    </div>
+    <p class="error-msg" id="actionMsg"></p>
+
+    <div class="card">
+      <h3 style="margin-top:0;">Transaction history</h3>
+      <ul class="tx-list" id="txList">
+        <li class="empty-state">Loading...</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

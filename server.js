@@ -1,7 +1,5 @@
-// server.js
-// Entry point. Wires up Express, loads env vars, mounts routes.
-
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 
 const authRoutes = require('./src/routes/auth');
@@ -12,14 +10,13 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Serve the frontend (public/index.html, dashboard.html, css/, js/)
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Simple request logger — handy while testing in Postman/curl
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} ${req.method} ${req.path}`);
   next();
-});
-
-app.get('/', (req, res) => {
-  res.json({ message: 'Wallet test API is running. See README.md for endpoints.' });
 });
 
 app.use('/api/auth', authRoutes);
